@@ -33,7 +33,11 @@ class App extends Component {
       treeOrientation: 'vertical',
     };
     chrome.devtools.panels.create(
+<<<<<<< HEAD
       'DeBux',
+=======
+      'De-Bux',
+>>>>>>> 72c608f969c509e360ccace2b243fc2ed2d90a29
       null, // icon
       'devtools.html',
       () => {
@@ -207,7 +211,7 @@ class App extends Component {
     });
   }
 
-  treeOrientation = (orientation) => {
+  treeOrientationToggle = (orientation) => {
     this.setState({
       treeOrientation: orientation,
     });
@@ -279,19 +283,21 @@ class App extends Component {
   }
 
   render() {
+    const { handleClick, handleClickLog, clickDisplay, treeOrientationToggle } = this;
+    const { treeData, storeHistory, stateAndProps, stateAndPropsStore, memory, displayWindow, treeOrientation } = this.state;
     return (
       <div className='appWindow'>
-        <NavBar clickDisplay={this.clickDisplay} treeOrientation={this.treeOrientation}/>
+        <NavBar clickDisplay={clickDisplay} treeOrientationToggle={treeOrientationToggle}/>
         <MainDisplay 
-          treeData={this.state.treeData} 
-          storeData={this.state.storeHistory} 
-          memory={this.state.memory} 
-          stateAndProps={this.state.stateAndProps} 
-          stateAndPropsStore={this.state.stateAndPropsStore}
-          handleClickLog={this.handleClickLog}
-          handleClick={this.handleClick}
-          displayWindow={this.state.displayWindow}
-          treeOrientation={this.state.treeOrientation}/>
+          treeData={treeData} 
+          storeData={storeHistory} 
+          memory={memory} 
+          stateAndProps={stateAndProps} 
+          stateAndPropsStore={stateAndPropsStore}
+          handleClickLog={handleClickLog}
+          handleClick={handleClick}
+          displayWindow={displayWindow}
+          treeOrientation={treeOrientation}/>
         <br />
       </div>
     );
