@@ -33,7 +33,7 @@ class App extends Component {
       treeOrientation: 'vertical',
     };
     chrome.devtools.panels.create(
-      'debux',
+      'DeBux',
       null, // icon
       'devtools.html',
       () => {
